@@ -24,7 +24,19 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image(image: NetworkImage(widget.image)),
+            Hero(
+              tag: widget.image,
+              child: Container(
+                height: 450,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(widget.image),
+                  ),
+                ),
+              ),
+            ),
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(18.0),

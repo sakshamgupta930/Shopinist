@@ -17,26 +17,33 @@ class _ProductScreenState extends State<ProductScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              height: 240,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(widget.image),
-                ),
-              ),
+            Hero(
+              tag: widget.image,
               child: Container(
+                width: double.infinity,
+                height: 240,
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(widget.image),
+                  ),
                 ),
-                child: Center(
-                  child: Text(
-                    widget.title,
-                    style: const TextStyle(
-                      fontSize: 40,
-                      fontFamily: "SmallFont",
-                      color: Colors.white,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                  ),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(
+                          8.0), // Adjust the padding as needed
+                      child: Text(
+                        widget.title,
+                        style: const TextStyle(
+                          fontSize: 40,
+                          fontFamily: "SmallFont",
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -95,31 +102,34 @@ class _ProductScreenState extends State<ProductScreen> {
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Column(
                           children: [
-                            Container(
-                              height: 220,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(
-                                      snapshot.data![index].images[0]),
+                            Hero(
+                              tag: snapshot.data![index].images[0],
+                              child: Container(
+                                height: 220,
+                                width: 150,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(
+                                        snapshot.data![index].images[0]),
+                                  ),
                                 ),
-                              ),
-                              child: Align(
-                                alignment: Alignment.topRight,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    height: 40,
-                                    width: 40,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Colors.white,
-                                    ),
-                                    child: const Icon(
-                                      Icons.favorite,
-                                      color: Colors.orange,
+                                child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                      height: 40,
+                                      width: 40,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: Colors.white,
+                                      ),
+                                      child: const Icon(
+                                        Icons.favorite,
+                                        color: Colors.orange,
+                                      ),
                                     ),
                                   ),
                                 ),

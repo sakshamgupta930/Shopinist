@@ -19,7 +19,7 @@ class _RootAppState extends State<RootApp> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(left: 10, top: 8, right: 10),
                 child: Row(
                   children: [
@@ -150,15 +150,18 @@ class _RootAppState extends State<RootApp> {
                             Padding(
                               padding: const EdgeInsets.only(
                                   top: 20, left: 20, right: 20, bottom: 10),
-                              child: Container(
-                                height: 200,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
-                                        snapshot.data![index].image),
+                              child: Hero(
+                                tag: snapshot.data![index].image,
+                                child: Container(
+                                  height: 200,
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(
+                                          snapshot.data![index].image),
+                                    ),
                                   ),
                                 ),
                               ),
